@@ -52,10 +52,6 @@ Este es un texto ~~tachado~~
 
 [UABC](http://www.uabc.mx "Sitio Universitario")
 
-![Texto alternativo]([https://static-blogs.hoy.es/wp-content/uploads/sites/227/2020/03/agua-normal-y-agua-destilada.jpg])
-
-![Foto local](./README.png)
-
 ```python
 print("Hola mundo")
 
