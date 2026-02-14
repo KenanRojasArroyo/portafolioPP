@@ -54,6 +54,7 @@ Este es un texto ~~tachado~~
 
 ```python
 print("Hola mundo")
+```
 
 <!-- Tablas -->
 | Productos| Precios | Cantidad |
