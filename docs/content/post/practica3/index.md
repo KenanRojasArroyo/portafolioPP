@@ -1,6 +1,6 @@
 +++
 date = '2026-02-13T17:58:46-08:00'
-draft = true
+draft = false
 title = 'Práctica 3: El paradigma funcional'
 +++
 

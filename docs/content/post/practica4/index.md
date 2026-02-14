@@ -1,6 +1,6 @@
 +++
 date = '2026-02-13T17:58:52-08:00'
-draft = true
+draft = false
 title = 'Práctica 4: El paradigma lógico'
 +++
 
