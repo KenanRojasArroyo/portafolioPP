@@ -1,7 +1,7 @@
 +++
-date = '2026-02-13T17:58:52-08:00'
+date = '2026-02-13T17:55:06-08:00'
 draft = true
-title = 'Practica4: El paradigma lógico'
+title = 'Práctica 0: Manejo de Repositorios'
 +++
 
 ## Subsecciones

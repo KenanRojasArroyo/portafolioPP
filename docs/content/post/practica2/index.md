@@ -1,7 +1,7 @@
 +++
 date = '2026-02-13T17:57:14-08:00'
 draft = true
-title = 'Practica2: El paradigma orientado a objetos'
+title = 'Práctica 2: El paradigma orientado a objetos'
 +++
 
 ## Subsecciones
