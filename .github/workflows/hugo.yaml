@@ -1,22 +1,15 @@
-# Nombre del flujo de trabajo
 name: Deploy Hugo site to Pages
 
 on:
-  # Se ejecuta al hacer push a la rama principal (main)
   push:
-    branches: 
-      - "master"
-
-  # Permite ejecutar este workflow manualmente desde la pestaña Actions
+    branches: ["main"]
   workflow_dispatch:
 
-# Configura los permisos del GITHUB_TOKEN para permitir el despliegue en GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Permite solo un despliegue concurrente
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -26,23 +19,26 @@ defaults:
     shell: bash
 
 jobs:
-  # Trabajo de compilación (Build)
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.141.0
+      HUGO_VERSION: 0.143.1  # Actualizado a tu versión local
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive # IMPORTANTE para que cargue el tema Stack
+          submodules: recursive
           fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3 # v3 es más estable para versiones nuevas
         with:
-          hugo-version: ${{ env:HUGO_VERSION }}
-          extended: true # El tema Stack requiere la versión 'extended'
+          hugo-version: ${{ env.HUGO_VERSION }} # <--- CORREGIDO: Usamos punto (.)
+          extended: true
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
 
       - name: Build with Hugo
         run: |
@@ -57,7 +53,6 @@ jobs:
         with:
           path: ./docs/public
 
-  # Trabajo de despliegue (Deploy)
   deploy:
     environment:
       name: github-pages
