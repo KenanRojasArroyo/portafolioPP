@@ -111,3 +111,8 @@ ___
 # GitHub Actions 
 
 **GitHub Actions** es una herramienta de integración y despliegue continuo que permite automatizar tareas. En este caso, lo usamos para que, cada vez que subamos un cambio. **GitHub** construya el el sitio de HUGO y lo publique en **GitHub Pages**
+
+# Enlaces
+
+**[GitHub]**(https://github.com/KenanRojasArroyo/portafolioPP "Repositorio GitHub")
+**[GitHub Pages]**(https://kenanrojasarroyo.github.io/portafolioPP/ "GitHub Pages")
