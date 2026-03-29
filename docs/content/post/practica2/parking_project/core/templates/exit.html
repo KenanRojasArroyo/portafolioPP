@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Salida de Vehículo</title>
+    <style>body { font-family: Arial, sans-serif; margin: 40px; } .form-group { margin-bottom: 15px; }</style>
+</head>
+<body>
+    <h1>Registrar Salida</h1>
+    <a href="{% url 'dashboard' %}">← Volver al Panel</a>
+    <hr>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="ticket_id">ID del Ticket:</label><br>
+            <input type="number" id="ticket_id" name="ticket_id" required>
+        </div>
+
+        <button type="submit" style="padding: 10px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Registrar Salida y Cobrar
+        </button>
+    </form>
+</body>
+</html>
