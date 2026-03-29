@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p>+++
+date = '2026-02-13T17:58:46-08:00'
+draft = false
+title = 'Práctica 2: Programación Orientada a Objetos'
++++</p>
+<hr>
+<h2 id="1-introducci%C3%B3n">1. Introducción</h2>
+<h3 id="11-problema">1.1 Problema</h3>
+<p>El presente reporte documenta el desarrollo de la Práctica 02, cuyo objetivo fue construir un simulador funcional de estacionamiento aplicando los principios fundamentales de la Programación Orientada a Objetos (POO) y el patrón de arquitectura Modelo-Vista-Controlador (MVC) con el framework Django.</p>
+<p>El problema central consiste en modelar las operaciones básicas de un estacionamiento: la entrada y salida de vehículos (automóviles y motocicletas), la asignación automática de lugares disponibles y compatibles con el tipo de vehículo, y el cálculo del costo de estancia con base en una política de cobro configurable.</p>
+<h3 id="12-objetivos">1.2 Objetivos</h3>
+<ol>
+<li>Modelar el dominio del estacionamiento aplicando los cuatro pilares de POO: encapsulación, abstracción, herencia y polimorfismo.</li>
+<li>Implementar una arquitectura limpia separando la lógica de negocio (dominio puro) de la capa de presentación web (Django MVC).</li>
+<li>Demostrar el uso de composición e inyección de dependencias en la clase principal <code>ParkingLot</code>.</li>
+<li>Registrar entradas y salidas de vehículos manteniendo el estado en memoria durante la sesión del servidor.</li>
+<li>Validar el sistema mediante pruebas manuales de flujos completos de entrada/salida y cobro.</li>
+</ol>
+<hr>
+<h2 id="2-modelo-del-dominio">2. Modelo del Dominio</h2>
+<h3 id="21-diagrama-uml-de-clases">2.1 Diagrama UML de Clases</h3>
+<pre class="hljs"><code><div>                    ┌──────────────────────────────┐
+                    │         &lt;&lt;enum&gt;&gt;             │
+                    │       VehicleType            │
+                    │  CAR / MOTORCYCLE            │
+                    └──────────────────────────────┘
+                              ▲
+         ┌────────────────────┴────────────────────┐
+         │           Vehicle (dataclass)           │
+         │  - _plate: str                         │
+         │  - _type: VehicleType                  │
+         │  + get_plate(): str                    │
+         │  + get_type(): VehicleType             │
+         └────────────────────────────────────────┘
+              ▲                       ▲
+    ┌─────────┴──────┐       ┌────────┴────────┐
+    │      Car       │       │   Motorcycle   │
+    └────────────────┘       └────────────────┘
+
+  ┌──────────────────────────────────────────────┐
+  │             ParkingLot                      │
+  │  - _spots: List[ParkingSpot]                │
+  │  - _active_tickets: Dict[int, Ticket]       │
+  │  - _policy: RatePolicy                      │
+  │  + enter(v, now): Ticket                   │
+  │  + exit(ticket_id, now): float             │
+  └──────────────────────────────────────────────┘
+       ◆ compone            ◆ compone
+  ┌────────────────┐    ┌───────────────────────┐
+  │  ParkingSpot   │    │       Ticket          │
+  │ - _spot_id     │    │ - _ticket_id: int     │
+  │ - _allowed     │    │ - _vehicle: Vehicle   │
+  │ - _occupied    │    │ - _spot: ParkingSpot  │
+  └────────────────┘    └───────────────────────┘
+
+  ┌────────────────────────────────────────────┐
+  │       &lt;&lt;Protocol&gt;&gt;  RatePolicy            │
+  │  + calculate(hours, v): float             │
+  └────────────────────────────────────────────┘
+       ▲                       ▲
+  ┌────┴──────────┐    ┌────────┴───────────┐
+  │HourlyRatePolicy│   │  FlatRatePolicy    │
+  └────────────────┘    └────────────────────┘
+</div></code></pre>
+<h3 id="22-clases-y-responsabilidades">2.2 Clases y Responsabilidades</h3>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Responsabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Vehicle</code></td>
+<td>Entidad base que encapsula placa y tipo. Proporciona getters para proteger el estado interno.</td>
+</tr>
+<tr>
+<td><code>Car</code> / <code>Motorcycle</code></td>
+<td>Subclases que especializan <code>Vehicle</code>; simplifican la instanciación y dan identidad de tipo.</td>
+</tr>
+<tr>
+<td><code>ParkingSpot</code></td>
+<td>Representa un lugar físico. Decide si acepta un vehículo según su tipo y gestiona su ocupación.</td>
+</tr>
+<tr>
+<td><code>Ticket</code></td>
+<td>Registra la relación entre un vehículo y un lugar durante un periodo de tiempo; calcula la duración.</td>
+</tr>
+<tr>
+<td><code>RatePolicy</code> (Protocol)</td>
+<td>Interfaz de cobro que define el contrato <code>calculate(hours, vehicle)</code>. Permite cambiar la tarifa sin modificar <code>ParkingLot</code>.</td>
+</tr>
+<tr>
+<td><code>HourlyRatePolicy</code></td>
+<td>Implementa cobro por hora diferenciado: $20/h para autos, $10/h para motos.</td>
+</tr>
+<tr>
+<td><code>FlatRatePolicy</code></td>
+<td>Implementa cobro de tarifa plana fija independientemente del tiempo.</td>
+</tr>
+<tr>
+<td><code>ParkingLot</code></td>
+<td>Orquestador principal: gestiona la lista de spots, el diccionario de tickets activos y delega el cobro a la política inyectada.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-evidencia-de-conceptos-poo">3. Evidencia de Conceptos POO</h2>
+<h3 id="31-encapsulaci%C3%B3n">3.1 Encapsulación</h3>
+<p>La encapsulación protege el estado interno de un objeto obligando a interactuar con él a través de métodos definidos. En <code>ParkingSpot</code>, el método <code>park()</code> valida que el lugar esté disponible antes de modificar el estado, impidiendo inconsistencias desde el exterior:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># spot.py</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">park</span><span class="hljs-params">(self, v: Vehicle)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+    <span class="hljs-comment"># Encapsulación: la validación vive dentro del método,</span>
+    <span class="hljs-comment"># el exterior no puede modificar _occupied directamente.</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.is_available_for(v):
+        <span class="hljs-keyword">raise</span> ValueError(
+            <span class="hljs-string">f"El lugar <span class="hljs-subst">{self._spot_id}</span> no está disponible."</span>
+        )
+    self._occupied = <span class="hljs-literal">True</span>
+    self._current_vehicle = v
+</div></code></pre>
+<p>Los atributos <code>_occupied</code> y <code>_current_vehicle</code> sólo se modifican a través de <code>park()</code> y <code>release()</code>, preservando la integridad del objeto.</p>
+<h3 id="32-abstracci%C3%B3n">3.2 Abstracción</h3>
+<p>La abstracción define un contrato sin exponer la implementación concreta. El protocolo <code>RatePolicy</code> expone únicamente lo que <code>ParkingLot</code> necesita saber para calcular el cobro: una firma <code>calculate(hours, vehicle)</code>. Cómo se calcule internamente es irrelevante para el orquestador.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># parking_lot.py</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RatePolicy</span><span class="hljs-params">(Protocol)</span>:</span>
+    <span class="hljs-string">"""Contrato abstracto para cualquier política de cobro."""</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calculate</span><span class="hljs-params">(self, hours: float, v: Vehicle)</span> -&gt; float:</span>
+        ...
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HourlyRatePolicy</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, car_rate: float, moto_rate: float)</span>:</span>
+        self._car_rate = car_rate
+        self._moto_rate = moto_rate
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calculate</span><span class="hljs-params">(self, hours: float, v: Vehicle)</span> -&gt; float:</span>
+        rate = self._car_rate <span class="hljs-keyword">if</span> v.get_type().name == <span class="hljs-string">'CAR'</span> <span class="hljs-keyword">else</span> self._moto_rate
+        <span class="hljs-keyword">return</span> hours * rate
+</div></code></pre>
+<p>La clase <code>FlatRatePolicy</code> proporciona una implementación alternativa que devuelve siempre un monto fijo, sin alterar ningún otro componente del sistema.</p>
+<h3 id="33-composici%C3%B3n">3.3 Composición</h3>
+<p><code>ParkingLot</code> no hereda de ninguna clase; en cambio, administra una lista de <code>ParkingSpot</code>, un diccionario de <code>Ticket</code> y una política de cobro inyectada en el constructor. Esto es composición: el todo se construye a partir de partes independientes y reemplazables.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># parking_lot.py</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParkingLot</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, spots: List[ParkingSpot], policy: RatePolicy)</span>:</span>
+        self._spots = spots              <span class="hljs-comment"># Composición: lista de ParkingSpot</span>
+        self._active_tickets: Dict[int, Ticket] = {}  <span class="hljs-comment"># Composición: mapa de Ticket</span>
+        self._policy = policy            <span class="hljs-comment"># Inyección de dependencias</span>
+        self._next_ticket_id = <span class="hljs-number">1</span>
+        self._total_revenue = <span class="hljs-number">0.0</span>
+</div></code></pre>
+<p>La inyección de la política en el constructor permite intercambiar <code>HourlyRatePolicy</code> por <code>FlatRatePolicy</code> (o cualquier implementación futura) sin modificar <code>ParkingLot</code>.</p>
+<h3 id="34-herencia-y-subtipos">3.4 Herencia y Subtipos</h3>
+<p><code>Car</code> y <code>Motorcycle</code> son subclases concretas de <code>Vehicle</code>. La herencia permite que cualquier método que reciba un <code>Vehicle</code> pueda trabajar con <code>Car</code> o <code>Motorcycle</code> sin modificaciones, simplificando la instanciación en la vista:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># vehicle.py</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vehicle</span>:</span>  <span class="hljs-comment"># Clase base</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, _plate: str, _type: VehicleType)</span>:</span>
+        self._plate = _plate
+        self._type = _type
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span><span class="hljs-params">(Vehicle)</span>:</span>  <span class="hljs-comment"># Subtipo especializado</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, plate: str)</span>:</span>
+        super().__init__(_plate=plate, _type=VehicleType.CAR)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Motorcycle</span><span class="hljs-params">(Vehicle)</span>:</span>  <span class="hljs-comment"># Subtipo especializado</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, plate: str)</span>:</span>
+        super().__init__(_plate=plate, _type=VehicleType.MOTORCYCLE)
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment"># views.py — uso de subtipos en el controlador</span>
+vehicle = Car(plate) <span class="hljs-keyword">if</span> v_type == <span class="hljs-string">'CAR'</span> <span class="hljs-keyword">else</span> Motorcycle(plate)
+</div></code></pre>
+<h3 id="35-polimorfismo">3.5 Polimorfismo</h3>
+<p>El polimorfismo se aprecia en el método <code>exit()</code> de <code>ParkingLot</code>: se llama a <code>self._policy.calculate()</code> sin importar qué implementación concreta de <code>RatePolicy</code> esté inyectada. El comportamiento cambia según el objeto real en tiempo de ejecución:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># parking_lot.py</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">exit</span><span class="hljs-params">(self, ticket_id: int, now: datetime)</span> -&gt; float:</span>
+    ticket = self._active_tickets[ticket_id]
+    ticket.close(now)
+    ticket.spot.release()
+
+    hours = ticket.get_duration_hours()
+    <span class="hljs-comment"># Polimorfismo: misma llamada, comportamiento distinto</span>
+    <span class="hljs-comment"># según si _policy es HourlyRatePolicy o FlatRatePolicy.</span>
+    cost = self._policy.calculate(hours, ticket.vehicle)
+
+    self._total_revenue += cost
+    <span class="hljs-keyword">del</span> self._active_tickets[ticket_id]
+    <span class="hljs-keyword">return</span> cost
+</div></code></pre>
+<p>La ventaja es la extensibilidad: si se necesita una nueva política (por ejemplo, tarifa nocturna), basta con crear una clase que implemente el protocolo <code>RatePolicy</code>; <code>ParkingLot</code> no necesita cambiar.</p>
+<hr>
+<h2 id="4-mvc-con-django">4. MVC con Django</h2>
+<h3 id="41-distribuci%C3%B3n-de-responsabilidades">4.1 Distribución de Responsabilidades</h3>
+<p>Django implementa el patrón MVC bajo la nomenclatura MVT (Model-View-Template), donde la lógica de negocio se separa claramente de la presentación:</p>
+<table>
+<thead>
+<tr>
+<th>Capa MVC</th>
+<th>Equivalente Django</th>
+<th>Archivos del Proyecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model</td>
+<td>Lógica de dominio pura (sin ORM)</td>
+<td><code>vehicle.py</code>, <code>spot.py</code>, <code>ticket.py</code>, <code>parking_lot.py</code></td>
+</tr>
+<tr>
+<td>View</td>
+<td>Templates HTML con Jinja2</td>
+<td><code>dashboard.html</code>, <code>entry.html</code>, <code>exit.html</code></td>
+</tr>
+<tr>
+<td>Controller</td>
+<td>Views de Django</td>
+<td><code>views.py</code> (funciones <code>dashboard</code>, <code>entry</code>, <code>exit_vehicle</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-modelo-model">4.2 Modelo (Model)</h3>
+<p>Las clases del paquete <code>domain/</code> constituyen el modelo. No dependen de Django en absoluto: no heredan de <code>models.Model</code> ni acceden a base de datos. Esto garantiza que la lógica de negocio sea portable y testeable de forma aislada.</p>
+<p>El estado se mantiene en memoria mediante una instancia global de <code>ParkingLot</code> en <code>views.py</code>, inicializada con 5 lugares para autos (C1–C5) y 5 para motocicletas (M1–M5), y una <code>HourlyRatePolicy</code> de $20/h y $10/h respectivamente.</p>
+<h3 id="43-vista-view--template">4.3 Vista (View / Template)</h3>
+<p>Los tres templates HTML renderizan el estado pasado desde el controlador:</p>
+<ul>
+<li><code>dashboard.html</code>: muestra la tabla de tickets activos, disponibilidad y total de ingresos acumulados.</li>
+<li><code>entry.html</code>: formulario con campos para placa y tipo de vehículo.</li>
+<li><code>exit.html</code>: formulario con campo para el ID del ticket a cerrar.</li>
+</ul>
+<p>Todos los templates usan el messages framework de Django para comunicar al usuario el resultado de la operación (éxito o error).</p>
+<h3 id="44-controlador-controller">4.4 Controlador (Controller)</h3>
+<p>Las tres funciones en <code>views.py</code> actúan como controladores: reciben el HTTP request, transforman los datos del formulario, delegan la operación al modelo y redirigen con un mensaje de retroalimentación:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># views.py</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">entry</span><span class="hljs-params">(request)</span>:</span>
+    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">'POST'</span>:
+        plate = request.POST.get(<span class="hljs-string">'plate'</span>)
+        v_type = request.POST.get(<span class="hljs-string">'type'</span>)
+        vehicle = Car(plate) <span class="hljs-keyword">if</span> v_type == <span class="hljs-string">'CAR'</span> <span class="hljs-keyword">else</span> Motorcycle(plate)
+        ticket = parking.enter(vehicle, datetime.now())   <span class="hljs-comment"># Delega al Modelo</span>
+        messages.success(request, <span class="hljs-string">f'Ticket ID: <span class="hljs-subst">{ticket.ticket_id}</span>'</span>)
+        <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">'dashboard'</span>)                       <span class="hljs-comment"># Redirige a la Vista</span>
+    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">'entry.html'</span>)                  <span class="hljs-comment"># GET: muestra el template</span>
+</div></code></pre>
+<h3 id="45-rutas">4.5 Rutas</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># urls.py</span>
+urlpatterns = [
+    path(<span class="hljs-string">''</span>, views.dashboard, name=<span class="hljs-string">'dashboard'</span>),
+    path(<span class="hljs-string">'entry/'</span>, views.entry, name=<span class="hljs-string">'entry'</span>),
+    path(<span class="hljs-string">'exit/'</span>, views.exit_vehicle, name=<span class="hljs-string">'exit'</span>),
+]
+</div></code></pre>
+<hr>
+<h2 id="5-pruebas-manuales">5. Pruebas Manuales</h2>
+<h3 id="51-flujo-1--entrada-y-salida-de-autom%C3%B3vil">5.1 Flujo 1 — Entrada y Salida de Automóvil</h3>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Descripción / Resultado Esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Navegar a <code>/entry/</code></td>
+<td>Se muestra el formulario con campos Placa y Tipo.</td>
+</tr>
+<tr>
+<td>2. Ingresar placa <code>ABC-123</code>, tipo <code>CAR</code></td>
+<td>Se envía POST. <code>parking.enter()</code> asigna lugar C1.</td>
+</tr>
+<tr>
+<td>3. Redirección a <code>/</code></td>
+<td>Dashboard muestra ticket ID 1, lugar C1, placa ABC-123. Disponibilidad: 4 libres para autos.</td>
+</tr>
+<tr>
+<td>4. Navegar a <code>/exit/</code></td>
+<td>Se muestra formulario con campo ID Ticket.</td>
+</tr>
+<tr>
+<td>5. Ingresar <code>ticket_id = 1</code></td>
+<td><code>parking.exit()</code> cierra el ticket, libera C1 y calcula costo (mínimo 1h = $20.00).</td>
+</tr>
+<tr>
+<td>6. Redirección a <code>/</code></td>
+<td>Mensaje: &quot;Total cobrado: $20.00&quot;. Tabla de tickets activos vacía. Ingresos: $20.00.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-flujo-2--entrada-de-motocicleta-y-validaci%C3%B3n-de-error">5.2 Flujo 2 — Entrada de Motocicleta y Validación de Error</h3>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Descripción / Resultado Esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Ingresar placa <code>MOTO-01</code>, tipo <code>MOTORCYCLE</code></td>
+<td><code>parking.enter()</code> busca spot de tipo MOTORCYCLE. Asigna M1.</td>
+</tr>
+<tr>
+<td>2. Dashboard</td>
+<td>Ticket ID 2, lugar M1. Disponibilidad: 5 autos libres, 4 motos libres.</td>
+</tr>
+<tr>
+<td>3. Intentar salida con ticket inválido (ID 99)</td>
+<td><code>parking.exit()</code> lanza <code>ValueError</code>. Mensaje en rojo: &quot;Ticket no encontrado o ya cerrado.&quot;</td>
+</tr>
+<tr>
+<td>4. Salida correcta con ID 2</td>
+<td>Costo: $10.00 (1h × $10). Lugar M1 liberado. Ingresos acumulados: $10.00.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-flujo-3--estacionamiento-lleno">5.3 Flujo 3 — Estacionamiento Lleno</h3>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Descripción / Resultado Esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Ingresar 5 autos consecutivos (C1–C5 ocupados)</td>
+<td>Cada entrada asigna el siguiente spot disponible.</td>
+</tr>
+<tr>
+<td>2. Intentar ingresar 6° auto</td>
+<td><code>parking.enter()</code> no encuentra spot disponible. Mensaje: &quot;Sin lugares compatibles.&quot;</td>
+</tr>
+<tr>
+<td>3. Ingresar una moto</td>
+<td>Los spots M1–M5 siguen disponibles; la moto se asigna normalmente.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="6-respuestas-a-las-preguntas-gu%C3%ADa">6. Respuestas a las Preguntas Guía</h2>
+<p><strong>¿Qué clase concentra la responsabilidad de asignar spots y por qué?</strong></p>
+<p>La clase <code>ParkingLot</code> concentra la responsabilidad de asignar spots mediante su método <code>enter()</code>. Esto sigue el principio de responsabilidad única (SRP): <code>ParkingLot</code> es el único objeto que conoce tanto la colección de spots disponibles como el registro de tickets activos. Delegar esa lógica a otro componente violaría la cohesión del modelo.</p>
+<p><strong>¿Qué invariantes protege el modelo?</strong></p>
+<ul>
+<li>Un spot no puede ser ocupado por dos vehículos simultáneamente. <code>ParkingSpot.park()</code> lanza <code>ValueError</code> si <code>is_available_for()</code> devuelve <code>False</code>, garantizando esta restricción sin depender de código externo.</li>
+<li>Un ticket cerrado no puede procesarse dos veces. <code>ParkingLot.exit()</code> elimina el ticket del diccionario <code>_active_tickets</code> al procesarlo; un segundo intento con el mismo ID lanza <code>ValueError(&quot;Ticket no encontrado&quot;)</code>.</li>
+</ul>
+<p><strong>¿Dónde se aplica polimorfismo y qué ventaja aporta?</strong></p>
+<p>El polimorfismo se aplica en la llamada <code>self._policy.calculate(hours, ticket.vehicle)</code> dentro de <code>ParkingLot.exit()</code>. La ventaja es la extensibilidad: se pueden agregar nuevas políticas de cobro implementando el protocolo <code>RatePolicy</code> sin tocar <code>ParkingLot</code>. El sistema es abierto a extensión y cerrado a modificación (principio Open/Closed).</p>
+<p><strong>¿Qué parte del sistema pertenece a Model, View y Controller en Django?</strong></p>
+<ul>
+<li><strong>Model</strong>: el paquete <code>domain/</code> (<code>vehicle.py</code>, <code>spot.py</code>, <code>ticket.py</code>, <code>parking_lot.py</code>). Contiene toda la lógica de negocio independiente de Django.</li>
+<li><strong>View (Template)</strong>: <code>dashboard.html</code>, <code>entry.html</code>, <code>exit.html</code>. Renderizan el estado recibido del controlador.</li>
+<li><strong>Controller</strong>: las funciones <code>dashboard()</code>, <code>entry()</code> y <code>exit_vehicle()</code> en <code>views.py</code>. Orquestan la interacción entre la petición HTTP, el modelo y la vista.</li>
+</ul>
+<p><strong>Si mañana cambian las tarifas, ¿qué clases tocarías y por qué?</strong></p>
+<p>Sólo sería necesario modificar los parámetros de <code>HourlyRatePolicy</code> en la inicialización de <code>views.py</code>. Si se requiere una lógica completamente distinta, se crearía una nueva clase que implemente <code>calculate(hours, vehicle)</code> y se inyectaría en <code>ParkingLot</code>. Ninguna otra clase del dominio requeriría modificación.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># views.py — único cambio necesario</span>
+policy = HourlyRatePolicy(car_rate=<span class="hljs-number">25.0</span>, moto_rate=<span class="hljs-number">12.0</span>)
+</div></code></pre>
+<hr>
+<h2 id="7-conclusiones">7. Conclusiones</h2>
+<p>Esta práctica demostró que los cuatro pilares de la POO no son conceptos aislados, sino herramientas complementarias que, aplicadas en conjunto, producen un diseño robusto, mantenible y extensible.</p>
+<p>La encapsulación protegió el estado de <code>ParkingSpot</code> y <code>Ticket</code> ante modificaciones externas no controladas. La abstracción a través del protocolo <code>RatePolicy</code> desacoplió la política de cobro del orquestador, permitiendo intercambiarla sin efectos colaterales. La herencia simplificó la creación de vehículos especializados. El polimorfismo permitió que <code>ParkingLot</code> calculara costos sin conocer la implementación concreta de la política.</p>
+<p>La separación en capas MVC fue natural: el dominio puro en Python resultó completamente independiente de Django, lo que facilitaría migrar a otro framework o añadir una API REST sin reescribir la lógica de negocio.</p>
+<p>Como área de mejora, se identificó que el uso de un estado global en memoria es frágil: reiniciar el servidor resetea todos los datos. Una versión futura podría persistir el estado usando los modelos ORM de Django, conservando la misma lógica de dominio.</p>
+<hr>
+<h2 id="8-referencias">8. Referencias</h2>
+<ol>
+<li>Gamma, E., Helm, R., Johnson, R., &amp; Vlissides, J. (1994). <em>Design patterns: Elements of reusable object-oriented software</em>. Addison-Wesley.</li>
+<li>Martin, R. C. (2003). <em>Agile software development: Principles, patterns, and practices</em>. Prentice Hall.</li>
+<li>Python Software Foundation. (2024). <em>dataclasses — Data Classes</em>. Python 3.12 documentation. https://docs.python.org/3/library/dataclasses.html</li>
+<li>Python Software Foundation. (2024). <em>typing — Support for type hints</em>. Python 3.12 documentation. https://docs.python.org/3/library/typing.html#typing.Protocol</li>
+<li>Django Software Foundation. (2024). <em>Django documentation: The view layer</em>. https://docs.djangoproject.com/en/5.0/topics/http/views/</li>
+<li>Django Software Foundation. (2024). <em>Django documentation: The template layer</em>. https://docs.djangoproject.com/en/5.0/topics/templates/</li>
+<li>Lutz, M. (2013). <em>Learning Python</em> (5th ed.). O'Reilly Media.</li>
+</ol>
+<h1 id="enlaces">Enlaces</h1>
+<p><a href="https://github.com/KenanRojasArroyo/portafolioPP" title="Repositorio GitHub">GitHub</a>
+<a href="https://kenanrojasarroyo.github.io/portafolioPP/" title="GitHub Pages">GitHub Pages</a></p>
+
+</body>
+</html>

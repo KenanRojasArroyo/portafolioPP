@@ -4,11 +4,6 @@ draft = false
 title = 'Práctica 2: Programación Orientada a Objetos'
 +++
 
-# Práctica 02: Simulador de Estacionamiento con POO y MVC
-
-**40032 - Paradigmas de la Programación**
-Marzo 2026
-
 ---
 
 ## 1. Introducción
@@ -347,3 +342,8 @@ Como área de mejora, se identificó que el uso de un estado global en memoria e
 5. Django Software Foundation. (2024). *Django documentation: The view layer*. https://docs.djangoproject.com/en/5.0/topics/http/views/
 6. Django Software Foundation. (2024). *Django documentation: The template layer*. https://docs.djangoproject.com/en/5.0/topics/templates/
 7. Lutz, M. (2013). *Learning Python* (5th ed.). O'Reilly Media.
+
+# Enlaces
+
+[GitHub](https://github.com/KenanRojasArroyo/portafolioPP "Repositorio GitHub")
+[GitHub Pages](https://kenanrojasarroyo.github.io/portafolioPP/ "GitHub Pages")

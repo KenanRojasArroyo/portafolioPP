@@ -4,6 +4,8 @@ draft = false
 title = 'Práctica 0: Uso de Repositorios'
 +++
 
+---
+
 # Markdown
 
 Markdown es un lenguaje de marcado que permite añadir formato a un texto simple mediante símbolos fáciles de recordar. Fue creado para que el contenido sea legible tanto en su forma cruda como cuando se renderiza en HTML.
