@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="date--2026-02-13t175846-0800draft--falsetitle--práctica-3-el-paradigma-funcional">+++
+date = '2026-02-13T17:58:46-08:00'
+draft = false
+title = 'Práctica 3: El paradigma funcional'
++++</h2>
+<h2 id="1-introducción">1. Introducción</h2>
+<h3 id="11-objetivo">1.1 Objetivo</h3>
+<p>El objetivo de esta práctica fue instalar y configurar el entorno de desarrollo de Haskell, explorar las herramientas del ecosistema y analizar una aplicación real escrita en este lenguaje: una aplicación TODO de línea de comandos. A diferencia de la práctica anterior —centrada en el paradigma orientado a objetos con Python y Django—, esta práctica introduce el <strong>paradigma funcional</strong>, donde las funciones puras, la inmutabilidad y el sistema de tipos son los pilares del diseño.</p>
+<h3 id="12-herramientas-del-ecosistema-haskell">1.2 Herramientas del ecosistema Haskell</h3>
+<p>La instalación se realizó mediante <strong>GHCup</strong>, el instalador oficial de Haskell, ejecutando el siguiente comando en PowerShell (sin modo administrador):</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">Set-ExecutionPolicy</span> Bypass <span class="hljs-literal">-Scope</span> <span class="hljs-keyword">Process</span> <span class="hljs-literal">-Force</span>;
+[<span class="hljs-type">System.Net.WebClient</span>]::new().DownloadString(<span class="hljs-string">&#x27;https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1&#x27;</span>) | <span class="hljs-built_in">Invoke-Expression</span>
+</div></code></pre>
+<p>Este comando instala automáticamente todos los componentes del ecosistema:</p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Versión</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GHCup</strong></td>
+<td>0.1.50.2</td>
+<td>Instalador y gestor del entorno Haskell</td>
+</tr>
+<tr>
+<td><strong>GHC</strong></td>
+<td>9.6.7</td>
+<td>Compilador oficial de Haskell (Glasgow Haskell Compiler)</td>
+</tr>
+<tr>
+<td><strong>GHCi</strong></td>
+<td>9.6.7</td>
+<td>Intérprete interactivo (REPL) de Haskell</td>
+</tr>
+<tr>
+<td><strong>HLS</strong></td>
+<td>Incluido</td>
+<td>Haskell Language Server — provee librerías estándar y soporte a IDEs</td>
+</tr>
+<tr>
+<td><strong>Stack</strong></td>
+<td>Incluido</td>
+<td>Manejador de paquetes, similar a <code>pip</code> en Python</td>
+</tr>
+<tr>
+<td><strong>Cabal</strong></td>
+<td>3.14.2.0</td>
+<td>Herramienta de empaquetado y build; usa Stack y GHC en conjunto</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-verificación-de-la-instalación">1.3 Verificación de la instalación</h3>
+<p>Se confirmó la correcta instalación ejecutando en PowerShell:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">PS</span> C:\Users\tranz&gt; ghc <span class="hljs-literal">--version</span>
+The Glorious Glasgow Haskell Compilation System, version <span class="hljs-number">9.6</span>.<span class="hljs-number">7</span>
+
+<span class="hljs-built_in">PS</span> C:\Users\tranz&gt; cabal <span class="hljs-literal">--version</span>
+cabal<span class="hljs-literal">-install</span> version <span class="hljs-number">3.14</span>.<span class="hljs-number">2.0</span>
+compiled <span class="hljs-keyword">using</span> version 3.14.2.0 of the Cabal library
+
+<span class="hljs-built_in">PS</span> C:\Users\tranz&gt; ghcup <span class="hljs-literal">--version</span>
+The GHCup Haskell installer, version <span class="hljs-number">0.1</span>.<span class="hljs-number">50.2</span>
+</div></code></pre>
+<p>Adicionalmente, se instaló la <strong>extensión oficial de Haskell para Visual Studio Code</strong>, que se conecta con HLS para proveer resaltado de sintaxis, autocompletado y diagnósticos en tiempo real.</p>
+<hr>
+<h2 id="2-desarrollo-de-la-práctica">2. Desarrollo de la práctica</h2>
+<h3 id="21-la-aplicación-todo">2.1 La aplicación TODO</h3>
+<p>La aplicación analizada es un gestor de tareas interactivo en consola escrito en Haskell. A diferencia de otras implementaciones basadas en argumentos de línea de comandos, esta aplicación funciona mediante comandos ingresados dinámicamente por el usuario.</p>
+<p>Los comandos disponibles son:</p>
+<ul>
+<li><code>+ &lt;String&gt;</code> — Agrega una nueva tarea</li>
+<li><code>- &lt;Int&gt;</code> — Elimina la tarea indicada</li>
+<li><code>s &lt;Int&gt;</code> — Muestra una tarea específica</li>
+<li><code>e &lt;Int&gt;</code> — Edita una tarea</li>
+<li><code>l</code> — Lista todas las tareas</li>
+<li><code>r</code> — Invierte el orden de la lista</li>
+<li><code>c</code> — Limpia todas las tareas</li>
+<li><code>q</code> — Sale del programa</li>
+</ul>
+<h3 id="22-estructura-del-proyecto">2.2 Estructura del proyecto</h3>
+<p>Al clonar el repositorio y acceder al directorio de la aplicación, se encontró la siguiente estructura de archivos:</p>
+<pre class="hljs"><code><div>todo/
+├── todo.cabal        ← Configuración del proyecto: dependencias y punto de entrada
+├── src/
+│   └── Main.hs       ← Código fuente principal de la aplicación
+└── README.md
+</div></code></pre>
+<p>El archivo <code>.cabal</code> define el ejecutable, las dependencias externas y el módulo principal. Los archivos de código fuente en Haskell utilizan la extensión <code>.hs</code>.</p>
+<h3 id="23-análisis-del-código-fuente">2.3 Análisis del código fuente</h3>
+<h4 id="módulos-e-importaciones">Módulos e importaciones</h4>
+<pre class="hljs"><code><div>module Main where
+
+import Configuration.Dotenv (defaultConfig, loadFile)
+import Lib (prompt)
+import System.Environment (lookupEnv)
+import Web.Browser (openBrowser)
+</div></code></pre>
+<p>Haskell organiza el código en módulos, lo que permite una gestión clara de las dependencias. En este caso, se importan únicamente las funciones necesarias para la ejecución del programa. La librería <code>Configuration.Dotenv</code> se encarga de cargar variables de entorno desde un archivo
+<code>.env</code>, <code>System.Environment</code> permite acceder a dichas variables en el sistema, mientras que <code>Web.Browser</code> facilita la interacción con el navegador predeterminado. Por último, el módulo <code>Lib</code> centraliza la lógica de negocio y el núcleo interactivo de la aplicación.</p>
+<h4 id="tipo-de-datos-para-las-tareas">Tipo de datos para las tareas</h4>
+<pre class="hljs"><code><div>data Task = Task
+  { taskId   :: Int,
+    taskDesc :: String,
+    taskDone :: Bool
+  } deriving (Show, Read)
+</div></code></pre>
+<p><code>Task</code> es un <em>tipo de dato algebraico (ADT)</em> definido mediante la sintaxis de registros (records). La cláusula <code>deriving (Show, Read)</code> es fundamental aquí: le indica al compilador que genere automáticamente las funciones para convertir el tipo de dato a texto (<code>show</code>) y para reconstruirlo a partir de una cadena de texto (<code>read</code>). Esto permite implementar la persistencia de datos en archivos de texto plano de manera sumamente sencilla, sin necesidad de recurrir a bases de datos complejas.</p>
+<h4 id="la-mónada-io-y-los-efectos-secundarios">La mónada IO y los efectos secundarios</h4>
+<pre class="hljs"><code><div>main :: IO ()
+main = do
+  loadFile defaultConfig
+  website &lt;- lookupEnv &quot;WEBSITE&quot;
+</div></code></pre>
+<p>La función <code>main</code> tiene el tipo <code>IO ()</code>, lo que señala explícitamente que el programa interactúa con el mundo exterior. En Haskell, todas las operaciones que conllevan efectos secundarios (como leer archivos con <code>loadFile</code> o consultar el entorno con <code>lookupEnv</code>) deben encapsularse en la mónada IO. Esta distinción es clave en el paradigma funcional, ya que permite aislar el código puro (predecible y fácil de testear) de las interacciones con el sistema, mejorando la robustez del software.</p>
+<h4 id="pattern-matching-en-el-despachador-de-comandos">Pattern matching en el despachador de comandos</h4>
+<pre class="hljs"><code><div>case website of
+  Nothing -&gt; error &quot;You should set WEBSITE at .env file.&quot;
+  Just s -&gt; do
+    result &lt;- openBrowser s
+</div></code></pre>
+<p>El <em>pattern matching</em> (ajuste de patrones) sobre el tipo <code>Maybe</code> (que puede ser <code>Just</code> con un valor o <code>Nothing</code>) es la forma segura en que Haskell maneja la ausencia de datos. A diferencia de otros lenguajes donde un valor nulo podría causar un error en tiempo de ejecución, aquí el compilador obliga al programador a contemplar ambos casos. Este mecanismo garantiza que el flujo del programa sea exhaustivo y reduce drásticamente los errores por valores no definidos.</p>
+<h4 id="funciones-de-alto-orden-para-manipular-listas">Funciones de alto orden para manipular listas</h4>
+<pre class="hljs"><code><div>markDone :: Int -&gt; IO ()
+markDone n = do
+  tasks &lt;- loadTasks
+  let updated = map (\t -&gt; if taskId t == n
+                            then t { taskDone = True }
+                            else t) tasks
+  saveTasks updated
+</div></code></pre>
+<p>En este bloque se observa el uso de <code>map</code>, una función de alto orden que aplica una lógica específica a cada elemento de una lista. Es un ejemplo perfecto de la inmutabilidad en Haskell: la función no modifica la lista <code>tasks</code> original, sino que genera una nueva versión llamada <code>updated</code> con los cambios aplicados. Esta ausencia de &quot;efectos colaterales&quot; en los datos previene errores comunes de concurrencia y estado compartido, facilitando el mantenimiento del código a largo plazo.</p>
+<h3 id="24-intento-de-ejecución-y-problemas-encontrados">2.4 Intento de ejecución y problemas encontrados</h3>
+<p>Se intentó compilar y ejecutar la aplicación con los comandos estándar de Cabal:</p>
+<pre class="hljs"><code><div>cabal update
+cabal build
+cabal run
+</div></code></pre>
+<p>Durante el proceso se presentaron <strong>problemas de compilación</strong> debidos a dependencias externas y a la configuración del entorno en Windows. Específicamente, algunas librerías del proyecto requerían herramientas del sistema (como <code>mingw</code>) que no estaban completamente configuradas en la ruta del sistema, lo que interrumpió el proceso de build.</p>
+<p>A pesar de no poder ejecutar la aplicación, se realizó un <strong>análisis estático completo del código fuente</strong> en VSCode, lo que permitió comprender el funcionamiento de la aplicación y los conceptos del paradigma funcional aplicados en ella.</p>
+<h3 id="25-conceptos-del-paradigma-funcional-identificados">2.5 Conceptos del paradigma funcional identificados</h3>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Aplicación en el proyecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Funciones puras</strong></td>
+<td>Las funciones de transformación de listas (<code>map</code>, <code>filter</code>) no producen efectos secundarios.</td>
+</tr>
+<tr>
+<td><strong>Tipos de datos algebraicos</strong></td>
+<td><code>Task</code> modela el dominio sin clases ni herencia.</td>
+</tr>
+<tr>
+<td><strong>Pattern matching</strong></td>
+<td>El despachador de comandos en <code>main</code> cubre todos los casos posibles.</td>
+</tr>
+<tr>
+<td><strong>Mónada IO</strong></td>
+<td>Aísla los efectos secundarios (I/O de archivos, argumentos) del código puro.</td>
+</tr>
+<tr>
+<td><strong>Inmutabilidad</strong></td>
+<td><code>markDone</code> construye una nueva lista en lugar de modificar la existente.</td>
+</tr>
+<tr>
+<td><strong>Funciones de orden superior</strong></td>
+<td><code>map</code> recibe una función como argumento para transformar la lista de tareas.</td>
+</tr>
+<tr>
+<td><strong>Sistema de tipos estático</strong></td>
+<td>El compilador rechaza usos incorrectos de tipos antes de ejecutar el programa.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-conclusiones">3. Conclusiones</h2>
+<p>Esta práctica evidenció las diferencias fundamentales entre el paradigma orientado a objetos —explorado en la práctica anterior— y el paradigma funcional de Haskell.</p>
+<p>En POO, el estado se distribuye en objetos que se modifican a lo largo del tiempo. En Haskell, el estado es explícito e inmutable: las transformaciones producen nuevos valores en lugar de mutar los existentes. Esta distinción hace que el código funcional sea más fácil de razonar, ya que una función siempre produce el mismo resultado para los mismos argumentos, independientemente del orden de ejecución o del estado del sistema.</p>
+<p>El sistema de tipos de Haskell resultó ser una herramienta de diseño, no solo de verificación. Al declarar <code>Task</code> como un tipo de dato algebraico, el compilador garantiza que ninguna parte del programa puede crear una tarea con campos faltantes o de tipo incorrecto. El uso de <code>deriving (Show, Read)</code> ilustra cómo el compilador puede generar código repetitivo automáticamente, reduciendo errores.</p>
+<p>La mónada IO, aunque inicialmente contraintuitiva, tiene un propósito claro: separar el código puro —sin efectos secundarios, fácilmente testeable— del código que interactúa con el mundo exterior. Esta separación forzada por el tipo es una de las características más poderosas y características de Haskell.</p>
+<p>Como área de oportunidad, los problemas de configuración del entorno en Windows resaltan que el ecosistema Haskell está más maduro en sistemas Unix. Para proyectos futuros, utilizar WSL (Windows Subsystem for Linux) o un contenedor Docker simplificaría la instalación de dependencias del sistema.</p>
+<hr>
+<h2 id="4-referencias">4. Referencias</h2>
+<ol>
+<li>Hutton, G. (2016). <em>Programming in Haskell</em> (2nd ed.). Cambridge University Press.</li>
+<li>O'Sullivan, B., Goerzen, J., &amp; Stewart, D. (2008). <em>Real World Haskell</em>. O'Reilly Media. http://book.realworldhaskell.org/</li>
+<li>Haskell Wiki. (2024). <em>Haskell/do notation</em>. https://en.wikibooks.org/wiki/Haskell/do_notation</li>
+<li>GHCup. (2024). <em>GHCup — The Haskell toolchain installer</em>. https://www.haskell.org/ghcup/</li>
+<li>Haskell.org. (2024). <em>Get Started with Haskell</em>. https://www.haskell.org/get-started/</li>
+<li>Daumé III, H. (2006). <em>Yet Another Haskell Tutorial</em>. https://www.cs.utah.edu/~hal/docs/daume02yaht.pdf</li>
+<li>Chalmers University CSE. (2024). <em>A Tour of the Haskell Syntax</em>. https://www.cse.chalmers.se/edu/course/TDA555/tourofprelude.html</li>
+</ol>
+<h1 id="enlaces">Enlaces</h1>
+<p><a href="https://github.com/KenanRojasArroyo/portafolioPP" title="Repositorio GitHub">GitHub</a>
+<a href="https://kenanrojasarroyo.github.io/portafolioPP/" title="GitHub Pages">GitHub Pages</a></p>
+
+</body>
+</html>
