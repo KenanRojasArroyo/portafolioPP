@@ -190,8 +190,8 @@ Como área de oportunidad, los problemas de configuración del entorno en Window
 
 ## 4. Referencias
 
-1. Hutton, G. (2016). *Programming in Haskell* (2nd ed.). Cambridge University Press.
-2. O'Sullivan, B., Goerzen, J., & Stewart, D. (2008). *Real World Haskell*. O'Reilly Media. http://book.realworldhaskell.org/
+1. 
+2. Steadylearner. (s. f.). Todo example (Haskell blog). GitHub. https://github.com/steadylearner/Haskell/tree/main/examples/blog/todo
 3. Haskell Wiki. (2024). *Haskell/do notation*. https://en.wikibooks.org/wiki/Haskell/do_notation
 4. GHCup. (2024). *GHCup — The Haskell toolchain installer*. https://www.haskell.org/ghcup/
 5. Haskell.org. (2024). *Get Started with Haskell*. https://www.haskell.org/get-started/
