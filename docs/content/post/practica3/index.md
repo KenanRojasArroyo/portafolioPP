@@ -190,13 +190,10 @@ Como área de oportunidad, los problemas de configuración del entorno en Window
 
 ## 4. Referencias
 
-1. 
-2. Steadylearner. (s. f.). Todo example (Haskell blog). GitHub. https://github.com/steadylearner/Haskell/tree/main/examples/blog/todo
-3. Haskell Wiki. (2024). *Haskell/do notation*. https://en.wikibooks.org/wiki/Haskell/do_notation
-4. GHCup. (2024). *GHCup — The Haskell toolchain installer*. https://www.haskell.org/ghcup/
-5. Haskell.org. (2024). *Get Started with Haskell*. https://www.haskell.org/get-started/
-6. Daumé III, H. (2006). *Yet Another Haskell Tutorial*. https://www.cs.utah.edu/~hal/docs/daume02yaht.pdf
-7. Chalmers University CSE. (2024). *A Tour of the Haskell Syntax*. https://www.cse.chalmers.se/edu/course/TDA555/tourofprelude.html
+1. Steadylearner. (2021). Todo example (Haskell blog). GitHub. https://github.com/steadylearner/Haskell/tree/main/examples/blog/todo 
+2. Steadylearner. (2021). How to use stack to build a Haskell app. DEV Community. https://dev.to/steadylearner/how-to-use-stack-to-build-a-haskell-app-499j
+3. HaskellWiki. (2011). Haskell tutorial for C programmers. https://wiki.haskell.org/index.php?title=Haskell_Tutorial_for_C_Programmers
+4. Haskell.org. (2014). Get started with Haskell. https://www.haskell.org/get-started/
 
 # Enlaces
 
