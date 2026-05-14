@@ -2,6 +2,7 @@
 date = '2026-02-13T17:58:46-08:00'
 draft = false
 title = 'Práctica 2: Programación Orientada a Objetos'
+weight: 2
 +++
 
 ---
