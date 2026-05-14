@@ -1,5 +1,5 @@
 +++
-date = '2026-02-13T17:58:46-08:00'
+date = '2026-04-13T17:58:46-08:00'
 draft = false
 title = 'Práctica 3: El paradigma funcional'
 weight = 3
